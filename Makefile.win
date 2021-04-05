@@ -1,0 +1,40 @@
+# Project: DOND
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -std=gnu++11
+CC       = gcc.exe -std=c++11
+WINDRES  = windres.exe
+OBJ      = main.o Comination.o InputHelper.o EvCalculator.o GCD.o
+LINKOBJ  = main.o Comination.o InputHelper.o EvCalculator.o GCD.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = DOND.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Comination.o: Comination.cpp
+	$(CPP) -c Comination.cpp -o Comination.o $(CXXFLAGS)
+
+InputHelper.o: InputHelper.cpp
+	$(CPP) -c InputHelper.cpp -o InputHelper.o $(CXXFLAGS)
+
+EvCalculator.o: EvCalculator.cpp
+	$(CPP) -c EvCalculator.cpp -o EvCalculator.o $(CXXFLAGS)
+
+GCD.o: GCD.cpp
+	$(CPP) -c GCD.cpp -o GCD.o $(CXXFLAGS)
